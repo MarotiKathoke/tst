@@ -1,0 +1,55 @@
+   private fun addClasses(classes: List<String>) {
+        classes_group.removeAllViews()
+        classes.forEachIndexed { index, str ->
+            val chip = getChip(str)
+            chip.setOnCheckedChangeListener { it, isChecked ->
+                toast("${it.text} checked")
+            }
+            classes_group.addView(chip)
+        }
+
+        classes_group.setOnCheckedChangeListener { it , i ->
+//            toast("${it.text} checked")
+        }
+
+
+    }
+
+    private fun getChip(text: String): Chip {
+        val chip = Chip(this, null)
+        chip.text = text
+        chip.isCheckedIconVisible = false
+        chip.isCheckable = true
+        chip.elevation =10f
+        chip.textSize =405f
+        chip.setTextAppearanceResource(R.style.chipText)
+        chip.setChipStrokeWidthResource(R.dimen._2sdp)
+        chip.setChipBackgroundColorResource(R.color.selector_grey_accent)
+        chip.setRippleColorResource(R.color.colorAccent)
+        chip.setChipStartPaddingResource(R.dimen.margin_10)
+        chip.setChipEndPaddingResource(R.dimen.margin_10)
+        chip.chipStrokeWidth =3f
+        chip.chipEndPadding =10f
+        chip.chipEndPadding =10f
+
+        chip.setChipStrokeColorResource(R.color.gray)
+        return chip
+
+
+
+
+
+    }
+
+
+
+<com.google.android.material.chip.ChipGroup
+        android:id="@+id/classes_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:chipSpacingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleSelection="false" />
